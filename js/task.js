@@ -1,5 +1,6 @@
 const banksList = document.querySelector(".banks");
-console.log(banksList);
+const banksInformationEl = document.querySelector('.bank-information')
+// console.log(banksList);
 
 const banks = [
   {
@@ -35,9 +36,26 @@ function createBankList(banks, callback) {
   return banks.map((bank) => callback(bank)).join("");
 }
 
-console.log(createBankList(banks, createMarkupBank));
+// console.log(createBankList(banks, createMarkupBank));
 
 banksList.insertAdjacentHTML(
   "beforeend",
   createBankList(banks, createMarkupBank)
 );
+
+function createMarkupBankInformation({ name, interestRate, maxLoan, minPayment, loanTerm} ) {
+    return `<li>Bank: ${name}</li>
+    <li>Mortgage Size, $: ${maxLoan}</li>
+    <li>Minimum down payment, $: ${minPayment}</li>
+    <li>Loan period, month: ${loanTerm}</li>
+    <li>Interest rate, %: ${interestRate}</li>`;
+  }
+
+  banksInformationEl.innerHTML = createMarkupBankInformation({
+    id: 2,
+    name: "Privat",
+    interestRate: 7,
+    maxLoan: 1000000,
+    minPayment: 5000,
+    loanTerm: 50,
+  },);

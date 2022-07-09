@@ -1,11 +1,18 @@
 .banks > li {
     display: flex;
+    margin-bottom: 20px;
 }
 .banks__item {
-    border: 3px solid blue;
+    border: 2px solid tomato;
     width: 250px;
+    border-radius: 20px;
 }
 .banks__edit--button {
     margin-left: auto;
     margin-right: 10px;
 }
+button {
+    margin: 12px;
+    cursor: pointer;
+}
+  

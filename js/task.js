@@ -1,5 +1,5 @@
 const banksList = document.querySelector(".banks");
-const banksInformationEl = document.querySelector('.bank-information')
+const banksInformationEl = document.querySelector(".bank-information");
 // console.log(banksList);
 
 const banks = [
@@ -21,8 +21,8 @@ const banks = [
   },
 ];
 
-function createMarkupBank({ name }) {
-  return `<li class="banks__item">
+function createMarkupBank({ name, id }) {
+  return `<li class="banks__item" data-id='${id}'>
         <p>${name}</p>
       <button class="banks__edit--button" type="button">
         Edit
@@ -43,19 +43,26 @@ banksList.insertAdjacentHTML(
   createBankList(banks, createMarkupBank)
 );
 
-function createMarkupBankInformation({ name, interestRate, maxLoan, minPayment, loanTerm} ) {
-    return `<li>Bank: ${name}</li>
+function createMarkupBankInformation({
+  name,
+  interestRate,
+  maxLoan,
+  minPayment,
+  loanTerm,
+}) {
+  return `<li>Bank: ${name}</li>
     <li>Mortgage Size, $: ${maxLoan}</li>
     <li>Minimum down payment, $: ${minPayment}</li>
     <li>Loan period, month: ${loanTerm}</li>
     <li>Interest rate, %: ${interestRate}</li>`;
-  }
+}
 
-  banksInformationEl.innerHTML = createMarkupBankInformation({
-    id: 2,
-    name: "Privat",
-    interestRate: 7,
-    maxLoan: 1000000,
-    minPayment: 5000,
-    loanTerm: 50,
-  },);
+banksList.addEventListener("click", (event) => {
+  const bankId = event.target.dataset.id;
+
+  const bank = banks.find((bank) => {
+    return Number(bankId) === bank.id;
+  });
+
+  banksInformationEl.innerHTML = createMarkupBankInformation(bank);
+});

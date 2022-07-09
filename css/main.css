@@ -1,0 +1,11 @@
+.banks > li {
+    display: flex;
+}
+.banks__item {
+    border: 3px solid blue;
+    width: 250px;
+}
+.banks__edit--button {
+    margin-left: auto;
+    margin-right: 10px;
+}

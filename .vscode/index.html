@@ -6,6 +6,7 @@
     <title>JS Project</title>
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/backdrop.css" />
   </head>
   <body>
     <header class="header">
@@ -35,7 +36,40 @@
       </div>
     </div>
 
+    <!-- БЕКДРОП З МОДАЛЬНИМ ВІКНОМ -->
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-form">
     
+        <!-- Форма для відсилання -->
+        <form class="contact-form">
+    
+          <label class="contact-form-field" for="bank-name">Bank name:</label>
+          <input class="contact-form-input" type="text" name="bank-name" id="bank-name">
+          
+          <label class="contact-form-field" for="mortgage-size">Mortgage Size, $:</label>
+          <input class="contact-form-input" type="number" name="mortgage-size" id="mortgage-size">
+  
+          <label class="contact-form-field" for="minimum-payment">Minimum down payment, $:</label>
+          <input class="contact-form-input" type="number" name="minimum-payment" id="minimum-payment">     
+          
+          <label class="contact-form-field" for="loan-period">Loan period, month:</label>
+          <select class="contact-form-input" id="loan-period" name="loan-period">
+            <option value="month">1</option>
+            <option value="month">3</option>
+            <option value="month">6</option>
+            <option value="month">12</option>
+          </select>
+          
+          <label class="contact-form-field" for="interest-rate">Interest rate, %:</label>
+          <input class="contact-form-input" type="number" name="interest-rate" id="interest-rate">
+
+          <button class="modal-btn" type="button">Exit</button>
+          <button class="modal-btn" type="submit">Submit</button>
+    
+        </form>
+      </div>
+    </div>
 
     <script src="./js/task.js" type="module"></script>
   </body>

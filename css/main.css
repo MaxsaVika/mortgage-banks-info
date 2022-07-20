@@ -1,11 +1,18 @@
+ul {
+    list-style: none;
+}
+
 .banks > li {
     display: flex;
     margin-bottom: 20px;
+    padding: 0 10px;
+    
 }
 .banks__item {
     border: 2px solid tomato;
     width: 250px;
     border-radius: 20px;
+    
 }
 .banks__edit--button {
     margin-left: auto;
@@ -15,4 +22,32 @@ button {
     margin: 12px;
     cursor: pointer;
 }
-  
+
+.banklist-container {
+    display: flex;
+    width: auto;
+    justify-content: center;
+}
+
+.banks {
+    padding: 0;
+}
+
+.main-title {
+    text-align: center;
+}
+.header {
+    background-color: blueviolet;
+}
+.header-title {
+        font-family: "Raleway", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 1.19;
+        letter-spacing: 0.03em; 
+        margin: auto;
+        text-align: center;
+        /* display: none; */
+        
+}

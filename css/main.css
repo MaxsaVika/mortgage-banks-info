@@ -9,7 +9,7 @@ ul {
     
 }
 .banks__item {
-    border: 2px solid tomato;
+    border: 2px solid gray;
     width: 250px;
     border-radius: 20px;
     
@@ -21,6 +21,7 @@ ul {
 button {
     margin: 12px;
     cursor: pointer;
+    
 }
 
 .banklist-container {

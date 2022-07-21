@@ -101,13 +101,12 @@ button {
     
 }
 
-.bank_description > li {
+.bank_description {
+    margin-left: auto;
     
 }
 
-.bank-information {
-    
-}
+
 
  .bank-information > li {
    width: 350px;
@@ -125,8 +124,9 @@ button {
         background-color:gray;
         margin-top: 3px;
         display: block;
-        
- }
+  }       
+
+ 
  
     
 .banks-btn {

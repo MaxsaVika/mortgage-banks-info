@@ -25,8 +25,8 @@ function createMarkupBank({ name, id }) {
   return `<li class="banks__item" data-id='${id}'>
         <p>${name}</p>
       <button class="banks__edit--button banks-btn" type="button">
-      <svg class="form-btn-icon" width="24" height="24">
-      <use href="./img/symbol-defs.svg#icon-edit"></use>
+      <svg class="form-btn-icon" width="20" height="20">
+      <use href="./img/symbol-defs.svg#icon-pencil"></use>
   </svg>
       </button>
       

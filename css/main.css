@@ -7,9 +7,10 @@ ul {
     margin-bottom: 20px;
     padding: 0 10px;
     
+    
 }
 .banks__item {
-    border: 2px solid rgb(157, 56, 224);
+    border: 2px solid gray;
     width: 250px;
     border-radius: 20px;
     
@@ -34,9 +35,19 @@ button {
 
 .main-title {
     text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 26px;
+        line-height: 1.19;
+        letter-spacing: 0.03em;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
 }
 .header {
     background-color: blueviolet;
+    display: none;
 }
 .header-title {
         font-family: "Raleway", sans-serif;
@@ -48,5 +59,17 @@ button {
         margin: auto;
         text-align: center;
         /* display: none; */
-        
-}
+ }       
+
+ .info-container {
+    text-align: center;
+ }
+
+ .bank-information > li {
+    display: flex;
+    justify-content: center;
+ }
+    
+
+
+ 

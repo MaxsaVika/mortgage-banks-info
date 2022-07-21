@@ -3,7 +3,7 @@ ul {
 }
 
 .hero {
-    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../img/tierra-mallorca-rgJ1J8SDEAY-unsplash.jpg);
+    background-image: linear-gradient(rgb(93, 196, 255), rgb(255, 250, 102));
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -62,20 +62,23 @@ button {
         line-height: 1.19;
         letter-spacing: 0.03em;
         margin: auto;
-        margin-top: 10px;
+        padding-top: 20px;
         margin-bottom: 20px;
 }
 .header {
-    background-image: url(../img/precondo-ca-uJ7NOEbTd80-unsplash1.jpg);
+    background-image: url(../img/Mortgage-header.jpg);
     /* display: none; */
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 115px;
+    height: 100px;
+    padding-top: 40px;
+    padding-left: 400px;
    
    
 }
   
+
 
 .info-title {
     text-align: center;
@@ -100,11 +103,12 @@ button {
  
 .create_new_bank {
     border-radius: 4px;
+    border-color: rgb(59, 180, 180);
     width: 250px;
     height: 40px;
     margin: auto;
     display: block;
-    background-color: rgb(206, 236, 36);
+    background-color: transparent;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
@@ -112,7 +116,7 @@ button {
 .create_new_bank:hover,
 .create_new_bank:focus {
     background-color: rgb(54, 188, 225);
-    color: white;
+    color: yellow;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }

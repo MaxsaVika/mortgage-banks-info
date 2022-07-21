@@ -20,7 +20,9 @@ ul {
     height: 30px;
     padding: 0 10px;
     align-items: center;
-    background-color: gainsboro;
+    border-radius: 4px;
+    border-color: rgb(106, 116, 119);
+    box-shadow: 0px 4px 4px rgba(209, 236, 71, 0.15);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -73,7 +75,7 @@ button {
     background-size: cover;
     height: 100px;
     padding-top: 40px;
-    padding-left: 400px;
+    padding-left: 600px;
    
    
 }

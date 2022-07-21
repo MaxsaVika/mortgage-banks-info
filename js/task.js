@@ -1,5 +1,8 @@
 const banksList = document.querySelector(".banks");
 const banksInformationEl = document.querySelector(".bank-information");
+const backdropRef = document.querySelector("[data-modal]");
+const createNewBankBtnRef = document.querySelector(".create_new_bank");
+const modalCloseBtnRef = document.querySelector("[data-modal-close]");
 // console.log(banksList);
 
 const banks = [
@@ -63,6 +66,10 @@ function createMarkupBankInformation({
 }
 
 banksList.addEventListener("click", (event) => {
+  if (event.target.nodeName !== "LI") {
+    return;
+  }
+
   const bankId = event.target.dataset.id;
 
   const bank = banks.find((bank) => {
@@ -84,3 +91,31 @@ function toggleModal() {
 startBtn.addEventListener("click", toggleModal);
 //closeBtn.addEventListener("click", toggleModal);
 //openBtn.addEventListener("click", toggleModal);
+
+createNewBankBtnRef.addEventListener("click", onModalOpenBtn);
+
+function onModalOpenBtn() {
+  backdropRef.classList.remove("is-hidden");
+}
+
+modalCloseBtnRef.addEventListener("click", onModalCloseBtn);
+
+function onModalCloseBtn() {
+  backdropRef.classList.add("is-hidden");
+}
+
+backdropRef.addEventListener("click", onBackdropClick);
+
+function onBackdropClick(event) {
+  if (event.target === event.currentTarget) {
+    onModalCloseBtn();
+  }
+}
+
+document.addEventListener("keydown", onPushEsc);
+
+function onPushEsc(event) {
+  if (event.code === "Escape") {
+    onModalCloseBtn();
+  }
+}

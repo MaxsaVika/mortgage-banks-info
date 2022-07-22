@@ -28,8 +28,8 @@ function createMarkupBank({ name, id }) {
   return `<li class="banks__item" data-id='${id}'>
         <p>${name}</p>
       <button class="banks__edit--button banks-btn" type="button">
-      <svg class="form-btn-icon" width="24" height="24">
-      <use href="./img/symbol-defs.svg#icon-edit"></use>
+      <svg class="form-btn-icon" width="20" height="20">
+      <use href="./img/symbol-defs.svg#icon-pencil"></use>
   </svg>
       </button>
       
@@ -58,11 +58,11 @@ function createMarkupBankInformation({
   minPayment,
   loanTerm,
 }) {
-  return `<li>Bank: ${name}</li>
-    <li>Mortgage Size, $: ${maxLoan}</li>
-    <li>Minimum down payment, $: ${minPayment}</li>
-    <li>Loan period, month: ${loanTerm}</li>
-    <li>Interest rate, %: ${interestRate}</li>`;
+  return `<li class="bank-keys">Bank: <span class="bank_description">${name}</span></li>
+    <li class="bank-keys">Mortgage Size, $: <span class="bank_description">${maxLoan}</span></li>
+    <li class="bank-keys">Minimum down payment, $: <span class="bank_description">${minPayment}</span></li>
+    <li class="bank-keys">Loan period, month: <span class="bank_description">${loanTerm}</span></li>
+    <li class="bank-keys">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
 }
 
 banksList.addEventListener("click", (event) => {

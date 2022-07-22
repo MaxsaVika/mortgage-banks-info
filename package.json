@@ -1,0 +1,19 @@
+{
+  "name": "mortgage",
+  "version": "1.0.0",
+  "description": "Потрібно створити застосунок в якому буде відображатись список створених клієнтом банків для можливості взяття іпотечного кредиту. \r При клікові на назву банку - буде відображатись його інформація, а саме:\r + Назва банку\r + Річна відсоткова ставка по іпотеці (interest rate, %)\r + Максимальна сума кредиту, яку надає банк (Max loan, $)\r + Мінімальний платіж (Min payment, $)\r + Термін кредиту (Loan term)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrii0207/Mortgage.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrii0207/Mortgage/issues"
+  },
+  "homepage": "https://github.com/Andrii0207/Mortgage#readme"
+}

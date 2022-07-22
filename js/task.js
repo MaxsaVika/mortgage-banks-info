@@ -55,11 +55,11 @@ function createMarkupBankInformation({
   minPayment,
   loanTerm,
 }) {
-  return `<li class="bank-key">Bank: <span class="bank_description">${name}</span></li>
-    <li class="bank-key">Mortgage Size, $: <span class="bank_description">${maxLoan}</span></li>
-    <li class="bank-key">Minimum down payment, $: <span class="bank_description">${minPayment}</span></li>
-    <li class="bank-key">Loan period, month: <span class="bank_description">${loanTerm}</span></li>
-    <li class="bank-key">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
+  return `<li class="bank-keys">Bank: <span class="bank_description">${name}</span></li>
+    <li class="bank-keys">Mortgage Size, $: <span class="bank_description">${maxLoan}</span></li>
+    <li class="bank-keys">Minimum down payment, $: <span class="bank_description">${minPayment}</span></li>
+    <li class="bank-keys">Loan period, month: <span class="bank_description">${loanTerm}</span></li>
+    <li class="bank-keys">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
 }
 
 banksList.addEventListener("click", (event) => {

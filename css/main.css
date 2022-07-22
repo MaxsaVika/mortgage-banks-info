@@ -49,10 +49,18 @@ button {
     display: flex;
     width: auto;
     justify-content: center;
+    
 }
 
 .banks {
     padding: 0;
+}
+
+.left-box {
+    width: 500px;
+    margin-left: 50px;
+    padding-top: 100px;
+    
 }
 
 .main-title {
@@ -63,8 +71,8 @@ button {
         font-size: 26px;
         line-height: 1.19;
         letter-spacing: 0.03em;
-        margin: auto;
-        padding-top: 20px;
+        margin-top: 0;
+        
         margin-bottom: 20px;
 }
 .header {

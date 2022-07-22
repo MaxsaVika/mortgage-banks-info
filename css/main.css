@@ -143,7 +143,8 @@ button {
   width: 350px;
   padding: 10px 10px;
   margin: auto;
-  background-color: rgba(240, 248, 255, 0.808);
+  background-color: transparent;
+  /* background-color: rgba(240, 248, 255, 0.808); */
 }
 
 /* .bank-information > li::after {

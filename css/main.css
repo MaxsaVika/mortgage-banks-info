@@ -28,7 +28,7 @@ ul {
 
 .banks > li:hover,
 .banks > li:focus  {
-    background-color: rgb(219, 219, 45);
+    background-image: linear-gradient(rgb(93, 196, 255), rgb(255, 250, 102));
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .banks__item {
@@ -128,8 +128,10 @@ button {
 }
 
  .info-container {
+    min-width: 500px;
     padding-top: 80px;
-    margin-left: 150px;
+    margin-right: 100px;
+    margin-left: auto;
  }
 
  .bank-information > li {
@@ -173,8 +175,8 @@ button {
 
 .create_new_bank:hover,
 .create_new_bank:focus {
-    background-color: rgb(54, 188, 225);
-    color: yellow;
+background-image: linear-gradient(rgb(93, 196, 255), rgb(255, 250, 102));
+    
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 }

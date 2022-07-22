@@ -29,7 +29,7 @@ function createMarkupBank({ name, id }) {
         <p>${name}</p>
       <button class="banks__edit--button banks-btn" type="button">
       <svg class="form-btn-icon" width="20" height="20">
-      <use href="./img/symbol-defs.svg#icon-pencil"></use>
+      <use href="./img/symbol-defs.svg#icon-edit"></use>
   </svg>
       </button>
       

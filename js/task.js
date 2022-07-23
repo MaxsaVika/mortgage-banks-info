@@ -51,11 +51,6 @@ function createBankList(banks, callback) {
   return banks.map((bank) => callback(bank)).join("");
 }
 
-banksList.insertAdjacentHTML(
-  "beforeend",
-  createBankList(banks, createMarkupBank)
-);
-
 function createMarkupBankInformation({
   name,
   interestRate,
@@ -87,6 +82,11 @@ banksList.addEventListener("click", (event) => {
 const checkBankList = () => {
   if (banks.length) {
     overlay.classList.add("hide");
+    banksList.innerHTML = "";
+    banksList.insertAdjacentHTML(
+    "beforeend",
+    createBankList(banks, createMarkupBank)
+);
   }
 };
 checkBankList();
@@ -130,9 +130,11 @@ function onAddNewBank(event) {
   const formData = new FormData(event.target);
 
   formData.forEach((value, name) => (newBank[name] = value));
-  newBank.id = new Date();
+  newBank.id = Date.now();
+  console.log(Date.now());
   banks.push(newBank);
 
   event.target.reset();
   onModalCloseBtn();
+  checkBankList();
 }

@@ -5,6 +5,10 @@ const createNewBankBtnRef = document.querySelector(".create_new_bank");
 const modalCloseBtnRef = document.querySelector("[data-modal-close]");
 const overlay = document.querySelector(".overlay");
 const startBtn = document.querySelector(".start");
+const modalBtnCreateBank = document.querySelector(
+  ".create_new_bank-from-modal"
+);
+const contactForm = document.querySelector(".contact-form");
 
 // console.log(banksList);
 
@@ -47,8 +51,6 @@ function createBankList(banks, callback) {
   return banks.map((bank) => callback(bank)).join("");
 }
 
-// console.log(createBankList(banks, createMarkupBank));
-
 banksList.insertAdjacentHTML(
   "beforeend",
   createBankList(banks, createMarkupBank)
@@ -82,23 +84,18 @@ banksList.addEventListener("click", (event) => {
   banksInformationEl.innerHTML = createMarkupBankInformation(bank);
 });
 
-function toggleModal() {
-  overlay.classList.toggle("hide");
-}
-
 const checkBankList = () => {
   if (banks.length) {
-    toggleModal();
+    overlay.classList.add("hide");
   }
 };
 checkBankList();
-startBtn.addEventListener("click", toggleModal);
-//closeBtn.addEventListener("click", toggleModal);
-//openBtn.addEventListener("click", toggleModal);
 
-createNewBankBtnRef.addEventListener("click", onModalOpenBtn);
+createNewBankBtnRef.addEventListener("click", onModalCreateNewBank);
+modalBtnCreateBank.addEventListener("click", onModalCreateNewBank);
 
-function onModalOpenBtn() {
+function onModalCreateNewBank() {
+  overlay.classList.add("hide");
   backdropRef.classList.remove("is-hidden");
 }
 
@@ -122,4 +119,20 @@ function onPushEsc(event) {
   if (event.code === "Escape") {
     onModalCloseBtn();
   }
+}
+
+contactForm.addEventListener("submit", onAddNewBank);
+
+function onAddNewBank(event) {
+  event.preventDefault();
+  const newBank = {};
+
+  const formData = new FormData(event.target);
+
+  formData.forEach((value, name) => (newBank[name] = value));
+  newBank.id = new Date();
+  banks.push(newBank);
+
+  event.target.reset();
+  onModalCloseBtn();
 }

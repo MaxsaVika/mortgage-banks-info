@@ -3,25 +3,28 @@ const banksInformationEl = document.querySelector(".bank-information");
 const backdropRef = document.querySelector("[data-modal]");
 const createNewBankBtnRef = document.querySelector(".create_new_bank");
 const modalCloseBtnRef = document.querySelector("[data-modal-close]");
+const overlay = document.querySelector(".overlay");
+const startBtn = document.querySelector(".start");
+
 // console.log(banksList);
 
 const banks = [
-  {
-    id: 1,
-    name: "Mono",
-    interestRate: 5,
-    maxLoan: 500000,
-    minPayment: 1000,
-    loanTerm: 12,
-  },
-  {
-    id: 2,
-    name: "Privat",
-    interestRate: 7,
-    maxLoan: 1000000,
-    minPayment: 5000,
-    loanTerm: 50,
-  },
+  // {
+  //   id: 1,
+  //   name: "Mono",
+  //   interestRate: 5,
+  //   maxLoan: 500000,
+  //   minPayment: 1000,
+  //   loanTerm: 12,
+  // },
+  // {
+  //   id: 2,
+  //   name: "Privat",
+  //   interestRate: 7,
+  //   maxLoan: 1000000,
+  //   minPayment: 5000,
+  //   loanTerm: 50,
+  // },
 ];
 
 function createMarkupBank({ name, id }) {
@@ -79,15 +82,16 @@ banksList.addEventListener("click", (event) => {
   banksInformationEl.innerHTML = createMarkupBankInformation(bank);
 });
 
-//const openBtn = document.querySelector(".open");
-const overlay = document.querySelector(".overlay");
-//const closeBtn = document.querySelector(".close");
-const startBtn = document.querySelector(".start");
-
 function toggleModal() {
   overlay.classList.toggle("hide");
 }
 
+const checkBankList = () => {
+  if (banks.length) {
+    toggleModal();
+  }
+};
+checkBankList();
 startBtn.addEventListener("click", toggleModal);
 //closeBtn.addEventListener("click", toggleModal);
 //openBtn.addEventListener("click", toggleModal);

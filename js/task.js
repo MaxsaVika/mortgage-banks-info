@@ -24,11 +24,16 @@ const banks = [
 function createMarkupBank({ name, id }) {
   return `<li class="banks__item" data-id='${id}'>
         <p>${name}</p>
-      <button class="banks__edit--button" type="button">
-        Edit
+      <button class="banks__edit--button banks-btn" type="button">
+      <svg class="form-btn-icon" width="24" height="24">
+      <use href="./img/symbol-defs.svg#icon-edit"></use>
+  </svg>
       </button>
-      <button class="banks__remove--button" type="button">
-        x
+      
+      <button class="banks__remove--button banks-btn" type="button">
+      <svg class="form-btn-icon" width="24" height="24">
+      <use href="./img/symbol-defs.svg#icon-x"></use>
+  </svg>
       </button>
     </li>`;
 }
@@ -66,3 +71,16 @@ banksList.addEventListener("click", (event) => {
 
   banksInformationEl.innerHTML = createMarkupBankInformation(bank);
 });
+
+//const openBtn = document.querySelector(".open");
+const overlay = document.querySelector(".overlay");
+//const closeBtn = document.querySelector(".close");
+const startBtn = document.querySelector(".start");
+
+function toggleModal() {
+  overlay.classList.toggle("hide");
+}
+
+startBtn.addEventListener("click", toggleModal);
+//closeBtn.addEventListener("click", toggleModal);
+//openBtn.addEventListener("click", toggleModal);

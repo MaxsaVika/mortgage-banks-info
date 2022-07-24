@@ -65,6 +65,9 @@ function createMarkupBankInformation({
 }
 
 banksList.addEventListener("click", (event) => {
+  if (event.target.nodeName === "OL") {
+    return;
+  }
   const bankId = event.target.closest(".banks__item").dataset.id;
   const bank = banks.find((bank) => {
     return Number(bankId) === bank.id;

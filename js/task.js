@@ -11,8 +11,6 @@ const modalBtnCreateBank = document.querySelector(
 const contactForm = document.querySelector(".contact-form");
 const onBtnBankList = document.querySelectorAll(".banks__remove--button");
 
-// console.log(banksList);
-
 const banks = [
   {
     id: 1,
@@ -34,19 +32,19 @@ const banks = [
 
 function createMarkupBank({ name, id }) {
   return `<li class="banks__item" data-id='${id}'>
-        <p data-id='${id}'>${name}</p>
-      <button class="banks__edit--button banks-btn" name="edit-bank" type="button">
-        <svg class="form-btn-icon" width="20" height="20">
-          <use href="./img/symbol-defs.svg#icon-edit"></use>
-        </svg>
+  <p>${name}</p>
+  <button class="banks__edit--button banks-btn" name="edit-bank" type="button">
+  <svg class="form-btn-icon" width="20" height="20">
+  <use href="./img/symbol-defs.svg#icon-edit"></use>
+  </svg>
+  </button>
+  
+      <button  name="delete-bank" class="banks__remove--button banks-btn" type="button">
+      <svg class="form-btn-icon" width="24" height="24">
+      <use href="./img/symbol-defs.svg#icon-x"></use>
+      </svg>
       </button>
-      
-      <button data-id='${id}' name="delete-bank" class="banks__remove--button banks-btn" type="button">
-        <svg data-id='${id}' class="form-btn-icon" width="24" height="24">
-          <use data-id='${id}' href="./img/symbol-defs.svg#icon-x"></use>
-        </svg>
-      </button>
-    </li>`;
+      </li>`;
 }
 function createBankList(banks, callback) {
   return banks.map((bank) => callback(bank)).join("");
@@ -60,20 +58,14 @@ function createMarkupBankInformation({
   loanTerm,
 }) {
   return `<li class="bank-keys">Bank: <span class="bank_description">${name}</span></li>
-    <li class="bank-keys">Mortgage Size, $: <span class="bank_description">${maxLoan}</span></li>
-    <li class="bank-keys">Minimum down payment, $: <span class="bank_description">${minPayment}</span></li>
-    <li class="bank-keys">Loan period, month: <span class="bank_description">${loanTerm}</span></li>
-    <li class="bank-keys">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
+      <li class="bank-keys">Mortgage Size, $: <span class="bank_description">${maxLoan}</span></li>
+      <li class="bank-keys">Minimum down payment, $: <span class="bank_description">${minPayment}</span></li>
+      <li class="bank-keys">Loan period, month: <span class="bank_description">${loanTerm}</span></li>
+      <li class="bank-keys">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
 }
 
 banksList.addEventListener("click", (event) => {
-  console.log(event.target);
-  // if (event.target.nodeName !== 'LI') {
-  // return;
-  // }
-
-  const bankId = event.target.dataset.id;
-
+  const bankId = event.target.closest(".banks__item").dataset.id;
   const bank = banks.find((bank) => {
     return Number(bankId) === bank.id;
   });
@@ -81,7 +73,7 @@ banksList.addEventListener("click", (event) => {
   banksInformationEl.innerHTML = createMarkupBankInformation(bank);
 });
 
-const checkBankList = () => {
+function checkBankList() {
   if (banks.length) {
     overlay.classList.add("hide");
     banksList.innerHTML = "";
@@ -90,7 +82,7 @@ const checkBankList = () => {
       createBankList(banks, createMarkupBank)
     );
   }
-};
+}
 checkBankList();
 
 createNewBankBtnRef.addEventListener("click", onModalCreateNewBank);

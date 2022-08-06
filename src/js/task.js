@@ -13,23 +13,28 @@ const contactForm = document.querySelector('.contact-form');
 const onBtnBankList = document.querySelectorAll('.banks__remove--button');
 const LOCALSTORAGE_KEY = 'bank-list';
 
+let isEdit = false;
+
+import sprite from '../img/symbol-defs.svg';
+console.log(sprite);
+
 let banks = [
-  {
-    id: 1,
-    name: 'Mono',
-    interestRate: 5,
-    maxLoan: 500000,
-    minPayment: 1000,
-    loanTerm: 12,
-  },
-  {
-    id: 2,
-    name: 'Privat',
-    interestRate: 7,
-    maxLoan: 1000000,
-    minPayment: 5000,
-    loanTerm: 50,
-  },
+  // {
+  //   id: 1,
+  //   name: 'Mono',
+  //   interestRate: 5,
+  //   maxLoan: 500000,
+  //   minPayment: 1000,
+  //   loanTerm: 12,
+  // },
+  // {
+  //   id: 2,
+  //   name: 'Privat',
+  //   interestRate: 7,
+  //   maxLoan: 1000000,
+  //   minPayment: 5000,
+  //   loanTerm: 50,
+  // },
 ];
 
 // console.log(save(LOCALSTORAGE_KEY, JSON.stringify(banks)));
@@ -38,12 +43,14 @@ function createMarkupBank({ name, id }) {
   <p>${name}</p>
   <div class="btn-wrapper" >
   <button class="banks__edit--button banks-btn" name="edit-bank" type="button">
-  <svg width="20" height="20">
-              <use href="/src/img/symbol-defs.svg#icon-pencil"></use>
-            </svg>
+              <svg width="20" height="20">
+              <use href="${sprite}#icon-pencil"></use>
+              </svg>
   </button>
    <button  name="delete-bank" class="banks__remove--button banks-btn" type="button">
-
+              <svg width="20" height="20">
+              <use href="${sprite}#icon-x"></use>
+              </svg>
       </button>
       </div>
       </li>`;
@@ -66,25 +73,34 @@ function createMarkupBankInformation({
       <li class="bank-keys">Interest rate, %: <span class="bank_description">${interestRate}</span></li>`;
 }
 
+let currentBank;
+
 banksList.addEventListener('click', event => {
+  const bankId = event.target.closest('.banks__item').dataset.id;
+  currentBank = findBankById(bankId);
   if (event.target.nodeName === 'OL') {
     return;
   }
 
   if (event.target.closest('.banks__edit--button')) {
+    isEdit = true;
     onModalCreateNewBank();
-    console.dir(event.target.closest('.banks__item').dataset.id);
-    return;
+    console.dir(contactForm.elements);
+
+    Object.keys(currentBank).filter(key => key !== 'id').forEach(key => contactForm.elements[key].value = currentBank[key]);
+  
   }
-
-  const bankId = event.target.closest('.banks__item').dataset.id;
-  const bank = banks.find(bank => {
-    return Number(bankId) === bank.id;
-  });
-
-  banksInformationEl.innerHTML = createMarkupBankInformation(bank);
+  console.log(currentBank);
+  banksInformationEl.innerHTML = createMarkupBankInformation(currentBank);
 });
 
+function findBankById(id) {
+
+    return banks.find(bank => {
+    return Number(id) === bank.id;
+    });
+  
+}
 createBankListFromLocal();
 
 function checkBankList() {
@@ -139,7 +155,9 @@ function onAddNewBank(event) {
   formData.forEach((value, name) => (newBank[name] = value));
   newBank.id = Date.now();
 
-  banks.push(newBank);
+  if (isEdit) {
+    banks = banks.map(el => el.id === currentBank.id ? newBank : el);
+  } else banks.push(newBank);
 
   event.target.reset();
   onModalCloseBtn();
@@ -159,3 +177,4 @@ function createBankListFromLocal() {
     checkBankList();
   } else checkBankList();
 }
+

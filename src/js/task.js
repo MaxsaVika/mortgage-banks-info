@@ -88,9 +88,17 @@ banksList.addEventListener('click', event => {
     console.dir(contactForm.elements);
 
     Object.keys(currentBank).filter(key => key !== 'id').forEach(key => contactForm.elements[key].value = currentBank[key]);
-  
+    return
   }
-  console.log(currentBank);
+
+  if (event.target.closest('.banks__remove--button')) {
+    banks =  banks.filter(bank => {
+      return bank.id !== +bankId})
+      
+    checkBankList();
+  }
+
+  // console.log(currentBank);
   banksInformationEl.innerHTML = createMarkupBankInformation(currentBank);
 });
 

@@ -12,7 +12,8 @@ const modalBtnCreateBank = document.querySelector(
 const contactForm = document.querySelector('.contact-form');
 const onBtnBankList = document.querySelectorAll('.banks__remove--button');
 const LOCALSTORAGE_KEY = 'bank-list';
-const banks = [
+
+let banks = [
   {
     id: 1,
     name: 'Mono',
@@ -84,6 +85,8 @@ banksList.addEventListener('click', event => {
   banksInformationEl.innerHTML = createMarkupBankInformation(bank);
 });
 
+createBankListFromLocal();
+
 function checkBankList() {
   if (banks.length) {
     overlay.classList.add('hide');
@@ -94,7 +97,6 @@ function checkBankList() {
     );
   }
 }
-checkBankList();
 
 createNewBankBtnRef.addEventListener('click', onModalCreateNewBank);
 modalBtnCreateBank.addEventListener('click', onModalCreateNewBank);
@@ -142,4 +144,18 @@ function onAddNewBank(event) {
   event.target.reset();
   onModalCloseBtn();
   checkBankList();
+  onSetLocalStorage();
+}
+
+function onSetLocalStorage() {
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(banks));
+}
+
+function createBankListFromLocal() {
+  let savedData = localStorage.getItem(LOCALSTORAGE_KEY);
+
+  if (savedData) {
+    banks = JSON.parse(savedData);
+    checkBankList();
+  } else checkBankList();
 }
